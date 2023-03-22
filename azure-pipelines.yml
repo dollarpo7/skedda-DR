@@ -36,7 +36,7 @@ stages:
           command: 'init'
           workingDirectory: '$(System.DefaultWorkingDirectory)/terra'
           backendType: 'azurerm'
-          backendServiceArm: 'Visual Studio Enterprise Subscription(b526a136-5b78-4fa3-9bd9-00c7bdadc807)'
+          backendServiceArm: 'dr-connect'
           backendAzureRmSubscriptionId: 'b526a136-5b78-4fa3-9bd9-00c7bdadc807'
           backendAzureRmResourceGroupName: 'platform'
           backendAzureRmStorageAccountName: 'platform010'
@@ -49,7 +49,7 @@ stages:
         inputs:
           command: 'plan'
           workingDirectory: '$(System.DefaultWorkingDirectory)/terra'
-          environmentServiceName: 'Visual Studio Enterprise Subscription(b526a136-5b78-4fa3-9bd9-00c7bdadc807)'
+          environmentServiceName: 'dr-connect'
           providerAzureRmSubscriptionId: 'b526a136-5b78-4fa3-9bd9-00c7bdadc807'
           commandOptions: '-out=$(System.DefaultWorkingDirectory)/terra/rcvtfplan -detailed-exitcode'
           allowTelemetryCollection: true
@@ -61,7 +61,7 @@ stages:
         inputs:
           command: 'apply'
           workingDirectory: '$(System.DefaultWorkingDirectory)/terra'
-          environmentServiceName: 'Visual Studio Enterprise Subscription(b526a136-5b78-4fa3-9bd9-00c7bdadc807)'
+          environmentServiceName: 'dr-connect'
           providerAzureRmSubscriptionId: 'b526a136-5b78-4fa3-9bd9-00c7bdadc807'
           commandOptions: 'rcvtfplan'
           allowTelemetryCollection: true
