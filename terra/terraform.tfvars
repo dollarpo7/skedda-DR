@@ -1,5 +1,5 @@
 resource_group_name     = "skeddadr"
-resource_group_location = "Central US"
+resource_group_location = "West Europe"
 app_service_plan_name   = "skedda-web-plan2"
 app_service_name        = "skedda-web-0232"
 sql_server_name         = "skedda-sqlserver-0232"
