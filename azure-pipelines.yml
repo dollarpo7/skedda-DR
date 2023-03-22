@@ -11,8 +11,8 @@ variables:
     #container: tfstate
     #tfstateFile: terraform.tfstate
     buildConfiguration: 'Release'
-    azureSubscription: 'Azure Pass - Sponsorship(44c254f7-5162-4fcc-8105-3660b0b461ba)'
-    WebAppName: 'teliosPortal'
+    #azureSubscription: 'Azure Pass - Sponsorship(44c254f7-5162-4fcc-8105-3660b0b461ba)'
+    #WebAppName: 'teliosPortal'
     ResourceGroupName: 'Telios'
     anyTfChanges: false
     tf_version: 1.4.2
