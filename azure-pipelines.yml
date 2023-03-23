@@ -41,7 +41,7 @@ stages:
           backendAzureRmResourceGroupName: 'platform'
           backendAzureRmStorageAccountName: 'platform010'
           backendAzureRmContainerName: 'platform'
-          backendAzureRmKey: 'recovery.tfstate'
+          backendAzureRmKey: 'dr.tfstate'
           allowTelemetryCollection: true
       
       - task: TerraformCLI@0
@@ -51,7 +51,7 @@ stages:
           workingDirectory: '$(System.DefaultWorkingDirectory)/terra'
           environmentServiceName: 'dr-connect'
           providerAzureRmSubscriptionId: 'b526a136-5b78-4fa3-9bd9-00c7bdadc807'
-          commandOptions: '-out=$(System.DefaultWorkingDirectory)/terra/rcvtfplan -detailed-exitcode'
+          commandOptions: '-out=$(System.DefaultWorkingDirectory)/terra/drtfplan -detailed-exitcode'
           allowTelemetryCollection: true
   
       
@@ -63,7 +63,7 @@ stages:
           workingDirectory: '$(System.DefaultWorkingDirectory)/terra'
           environmentServiceName: 'dr-connect'
           providerAzureRmSubscriptionId: 'b526a136-5b78-4fa3-9bd9-00c7bdadc807'
-          commandOptions: 'rcvtfplan'
+          commandOptions: 'drtfplan'
           allowTelemetryCollection: true
 
   - stage: Build_Application
