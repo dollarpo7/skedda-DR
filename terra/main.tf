@@ -29,6 +29,24 @@ resource "azurerm_linux_web_app" "app" {
 
 }
 
+data "azurerm_mssql_server" "old_server" {
+  name                = "skedda-sqlserver-0231"
+  resource_group_name = "ado"
+}
+
+output "id" {
+  value = data.azurerm_mssql_server.old_server.id
+}
+
+data "azurerm_mssql_database" "old_DB" {
+  name      = "ProductsDBs"
+  server_id = data.azurerm_mssql_server.old_server.id
+}
+
+output "database_id" {
+  value = data.azurerm_mssql_database.old_DB.id
+}
+
 resource "azurerm_mssql_server" "sql" {
   name                         = var.sql_server_name
   resource_group_name          = azurerm_resource_group.rg.name
@@ -36,15 +54,6 @@ resource "azurerm_mssql_server" "sql" {
   version                      = "12.0"
   administrator_login          = var.sql_admin_login
   administrator_login_password = var.sql_admin_password
-}
-
-data "azurerm_mssql_database" "oldDB" {
-  name      = "ProductsDBs"
-  server_id = azurerm_mssql_server.sql.id
-}
-
-output "database_id" {
-  value = data.azurerm_mssql_database.oldDB.id
 }
 
 resource "azurerm_mssql_database" "db" {
