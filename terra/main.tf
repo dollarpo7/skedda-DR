@@ -64,7 +64,7 @@ resource "azurerm_mssql_database" "db" {
   sku_name       = "S0"
   zone_redundant = false
   create_mode = "RestoreExternalBackup"
-  creation_source_database_id = data.azurerm_mssql_database.oldDB.id
+  creation_source_database_id = data.azurerm_mssql_database.old_DB.id
 }
 
 resource "azurerm_storage_account" "storage" {
