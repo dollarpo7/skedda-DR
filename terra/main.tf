@@ -47,6 +47,16 @@ output "database_id" {
   value = data.azurerm_mssql_database.old_DB.id
 }
 
+data "azurerm_storage_account" "backup" {
+  name                = "tfstorage014"
+  resource_group_name = "ado"
+}
+
+output "storage_account_tier" {
+  value = data.azurerm_storage_account.backup.access_tier
+}
+
+
 resource "azurerm_mssql_server" "sql" {
   name                         = var.sql_server_name
   resource_group_name          = azurerm_resource_group.rg.name
@@ -63,8 +73,9 @@ resource "azurerm_mssql_database" "db" {
   license_type   = "LicenseIncluded"
   sku_name       = "S0"
   zone_redundant = false
-  create_mode = "RestoreExternalBackup"
+  create_mode = "Default"
   creation_source_database_id = data.azurerm_mssql_database.old_DB.id
+  
 }
 
 resource "azurerm_storage_account" "storage" {
