@@ -5,15 +5,6 @@ pool:
     vmImage: 'ubuntu-latest'
   
 variables:
-    #subscription: Visual Studio Enterprise(b526a136-5b78-4fa3-9bd9-00c7bdadc807)
-    #resourceGroup: resourcegroup-tfstate
-    #storageAccount: tfstate1085
-    #container: tfstate
-    #tfstateFile: terraform.tfstate
-    buildConfiguration: 'Release'
-    #azureSubscription: 'Azure Pass - Sponsorship(44c254f7-5162-4fcc-8105-3660b0b461ba)'
-    ##WebAppName: 'teliosPortal'
-    ResourceGroupName: 'Telios'
     anyTfChanges: false
     tf_version: 1.4.2
   
