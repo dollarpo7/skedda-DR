@@ -29,6 +29,8 @@ resource "azurerm_linux_web_app" "app" {
 
 }
 
+####### This part is needed to get info about the Geo-Replicated Backup File #######
+
 data "azurerm_mssql_server" "old_server" {
   name                = "skedda-sqlserver-0231"
   resource_group_name = "ado"
@@ -56,6 +58,7 @@ output "storage_account_tier" {
   value = data.azurerm_storage_account.backup.access_tier
 }
 
+#### We create the New Database from here downwards ######
 
 resource "azurerm_mssql_server" "sql" {
   name                         = var.sql_server_name
@@ -64,6 +67,7 @@ resource "azurerm_mssql_server" "sql" {
   version                      = "12.0"
   administrator_login          = var.sql_admin_login
   administrator_login_password = var.sql_admin_password
+  public_network_access_enabled = true
 }
 
 resource "azurerm_mssql_database" "db" {
