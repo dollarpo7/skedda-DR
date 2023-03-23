@@ -1,6 +1,6 @@
-resource_group_name     = "adoo"
+resource_group_name     = "ado2"
 resource_group_location = "West Europe"
-app_service_plan_name   = "skedda-web-plan2"
+app_service_plan_name   = "skedda-web-plan3"
 app_service_name        = "skedda-web-0232"
 sql_server_name         = "skedda-sqlserver-0232"
 sql_database_name       = "RecoveryDBs"
